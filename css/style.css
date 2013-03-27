@@ -1,0 +1,43 @@
+/*@import url("http://ts.daumcdn.net/custom/blog/5/54055/skin/style.css");*/
+@import url("css_prettify.css");
+
+body	{
+	margin:0 auto;
+	padding:0;
+}
+
+header	{
+	text-align:center;
+	background:#333;
+	color:#eee;
+	height:10em;
+	width: 100%;
+}
+header h1	{
+	margin-top: 1.5em;
+	margin-top: 2em;
+	display: inline-block;
+}
+
+footer	{
+	text-align:center;
+	background:#333;
+	color:#eee;
+	width: 100%;
+}
+
+#imgs	{
+}
+
+.imgs	{
+	margin:3em 0;
+	padding: 0 1em;
+	border:1px solid silver;
+}
+.pages	{
+	width: 376px; margin:auto; display: block; height:88px; border:0;
+}
+
+.ad	{
+	margin-left:-64px;
+}

@@ -125,11 +125,15 @@
 						if (count_list[i][1] < 10) {
 							count_list[i][1] = '0' + count_list[i][1];
 						}
-						$(count_list[i][0]).text(count_list[i][1]).animate({
-							opacity: '.5'
-						}, 100).animate({
-							opacity: '1'
-						}, 500);
+						if ($(count_list[i][0]).text() != count_list[i][1]) {
+							$(count_list[i][0]).text(count_list[i][1]).animate({
+								opacity: '.5'
+							}, 100).animate({
+								opacity: '1'
+							}, 500);
+						} else {
+							$(count_list[i][0]).text(count_list[i][1]);
+						}
 					}
 				} else {
 					$('#output').text('00:00:00:00:00');

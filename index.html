@@ -10,6 +10,33 @@
         <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript" src="js/script_prettify.js"></script>
         <title>수능 디데이 카운터</title>
+        
+        <script type="text/javascript">
+		function loadXMLDoc()
+		{
+		var xmlhttp;
+		if (window.XMLHttpRequest)
+		  {// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		  }
+		else
+		  {// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		  }
+		xmlhttp.onreadystatechange=function()
+		  {
+		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		    {
+		    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+		    }
+		  }
+		xmlhttp.open("GET","README.md",true);
+		xmlhttp.send();
+		}
+		
+		loadXMLDoc();
+	</script>
+
     </head>
 
 	<body>
@@ -71,62 +98,6 @@
 		</section>
         
         <footer>
-<pre style="text-align:left;">기록
-
----------------------------------------------------------------------------------
-
-2013.02.16.	ver.2.9.1		4.25KB
-
-특정 상황에서의 오류 수정.
-
----------------------------------------------------------------------------------
-
-
-2013.02.15.	ver.2.9		4.13KB
-
-2014 수능 카운터 제작.
-
----------------------------------------------------------------------------------
-
-2011.08.01.	ver.2.7		4.38KB
-
-2013 수능 카운터 배포.
-
----------------------------------------------------------------------------------
-
-2011.09.24.	ver.2.6
-
-코드에 jQuery 이용.
-
----------------------------------------------------------------------------------
-
-2011.08.19.	ver.2.5
-
-2013 수능 카운터 제작.
-구글 웹 폰트를 이용해 임의의 환경에서도 동일한 글꼴로 보임.
-숫자들이 좌우로 흔들리는 현상을 방지.
-
----------------------------------------------------------------------------------
-
-2010.11.19.	ver.2.1		4.37KB
-
-2012 수능 카운터 배포.
-
----------------------------------------------------------------------------------
-
-2010.01.15.	ver.2.0
-
-2011 수능 카운터 제작.
-플래시를 지원하지 않는 환경에서도 볼 수 있게 하기 위해 자바스크립트를 이용함.
-
----------------------------------------------------------------------------------
-
-2008.11.13.	ver.1.0
-
-2010 수능 카운터를 플래시로 제작함.
-
----------------------------------------------------------------------------------</pre>
-            
         </footer>
         
 <script type="text/javascript">

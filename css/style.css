@@ -4,6 +4,7 @@
 body	{
 	margin:0 auto;
 	padding:0;
+	text-align:center;
 }
 
 header	{
@@ -40,5 +41,5 @@ footer	{
 }
 
 .ad	{
-	margin-left:-64px;
+	margin:5em;
 }

@@ -44,3 +44,12 @@ footer	{
 .ad	{
 	margin:5em;
 }
+
+.copythis {
+    margin: auto;
+    width: 345px;
+    box-shadow: none;
+    margin-top: -1em;
+    border: 1px solid silver;
+    border-radius: 0;
+}

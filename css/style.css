@@ -9,11 +9,11 @@ body	{
 
 header	{
 	text-align:center;
-	background:#fff;
-	color:#000;
+	background:#212121;
+	color:#fff;
 	height:10em;
 	width: 100%;
-	display:none;
+	display:;
 }
 header h1	{
 	margin-top: 1.5em;

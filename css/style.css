@@ -5,12 +5,13 @@ body	{
 	margin:0 auto;
 	padding:0;
 	text-align:center;
+	font-family:'맑은 고딕';
 }
 
 header	{
 	text-align:center;
-	background:#212121;
-	color:#fff;
+	background:#fff;
+	color:#212121;
 	height:10em;
 	width: 100%;
 	display:;

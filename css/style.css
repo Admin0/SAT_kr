@@ -52,4 +52,8 @@ footer	{
     margin-top: -1em;
     border: 1px solid silver;
     border-radius: 0;
+    background:#eee;
+    padding:1em;
+    top: 11px;
+    position: relative;
 }

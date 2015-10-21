@@ -38,8 +38,9 @@ footer	{
 	border:1px solid silver;
 }
 .pages	{
-	width: 376px; margin:auto; display: block; height:88px; border:0;
+	width: 375px; margin:auto; display: block; height:88px; border:0; margin-top:3em;
 }
+.pages:first-child	{margin-top:0;}
 
 .ad	{
 	margin:5em;
@@ -47,7 +48,7 @@ footer	{
 
 .copythis {
     margin: auto;
-    width: 345px;
+    width: 346px;
     box-shadow: none;
     margin-top: -1em;
     border: 1px solid silver;

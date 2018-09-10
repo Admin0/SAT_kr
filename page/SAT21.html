@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>2021 대학수학능력시험 카운터</title>
+    		<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+		<meta name="author" content="JinH" />
+		<meta name="keywords" content="수학능력시험" />
+		<meta name="description" content="2020년 11월 19일 0시 정각에 맞춰진 카운터입니다." />
+		<link href='http://fonts.googleapis.com/css?family=Rationale' rel='stylesheet' type='text/css'>
+		<!-- google font -->
+		<style type="text/css">
+			html {
+				overflow:hidden;
+				font:12px sans-serif;
+				color:#333;
+				height:100%;
+			}
+			body {
+				margin:0;
+				height:100%;
+/* Internet Explorer 10 */
+display:-ms-flexbox;
+-ms-flex-pack:center;
+-ms-flex-align:center;
+
+/* Firefox */
+display:-moz-box;
+-moz-box-pack:center;
+-moz-box-align:center;
+
+/* Safari, Opera, and Chrome */
+display:-webkit-box;
+-webkit-box-pack:center;
+-webkit-box-align:center;
+
+/* W3C */
+display:box;
+box-pack:center;
+box-align:center;
+			}
+			.numbox {
+				width:0.9em;
+				display:inline-block;
+				text-align:left;
+			}
+			.numd {
+				width:1.3em;
+				text-align:right;
+			}
+			.numc {
+				width:1.1em;
+				text-align:left;
+			}
+			#output_msg {
+				text-align:center;
+			}
+			#output {
+				font:4em Rationale;
+				color:#f32;
+				text-align:center;
+				line-height:1;
+				cursor:default;
+			}
+			#infoopen, #infoclose {
+				cursor:pointer;
+				display:inline-block;
+				width:1.3em;
+				height:1.3em;
+				text-align:center;
+				position: absolute;
+				margin-left:27.5em;
+				background: #ddd;
+				padding: .5em;
+			}
+			#info {
+				height:6em;
+				background-color:rgba(255, 255, 255, 0.7);
+				display:none;
+				margin:auto;
+				overflow:hidden;
+			}
+			.onclick {
+				background-color:#f32;
+			}
+			.offclick {
+				background-color:#fff;
+			}
+
+		</style>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+	</head>
+	<body>
+		<div style="border:1px solid silver; padding:1ex; width:30em; height:6em; margin:auto;">
+			<div id="infoopen" class="offclick">
+				<svg width="8" height="8">
+					<path style="stroke:#333;" d="M 0,1.5 8,1.5 M 0,4.5 8,4.5 M 0,7.5 8,7.5"></path>
+				</svg>
+			</div>
+			<div id="output_msg"><b>2020 대학수학능력시험 카운터</b>
+
+			</div>
+			<div id="output">Loading...</div>
+			<div id="info">	<pre style="margin:0;">2020년 11월 19일 0시 정각에 맞춰진 카운터입니다.
+
+제작: JinH
+블로그: <a href="http://jinh.tistory.com/" target="_blank">http://jinh.tistory.com/</a>
+배포: <a href="http://admin0.github.com/SAT_kr/" target="_blank">http://admin0.github.com/SAT_kr/</a>
+
+화이팅^^</pre>
+
+			</div>
+		</div>
+		<script type="text/javascript">
+			/*
+			 * @author	JinH
+			 * @blog	http://jinh.tistory.com
+			 */
+			//timer
+			function M(number) {
+				return Math.floor(number / 1000);
+			}
+			$('#output').html('<div class="numbox numd"></div>:<div class="numbox numh"></div>:<div class="numbox numm"></div>:<div class="numbox nums"></div>:<div class="numbox numc"></div>');
+
+			function countdown() {
+				var time_now = new Date().getTime();
+				var time_end = new Date(2019, 10, 19).getTime();
+				var dday = time_end - time_now;
+				if (dday >= 0) {
+					var days = M(dday / 24 / 60 / 60);
+					var hours = M((dday - days * 24 * 60 * 60 * 1000) / 60 / 60);
+					var minutes = M((dday - days * 24 * 60 * 60 * 1000 - hours * 60 * 60 * 1000) / 60);
+					var seconds = M(dday - days * 24 * 60 * 60 * 1000 - hours * 60 * 60 * 1000 - minutes * 60 * 1000);
+					var centiseconds = M((dday - days * 24 * 60 * 60 * 1000 - hours * 60 * 60 * 1000 - minutes * 60 * 1000 - seconds * 1000) * 100);
+					var count_list = [
+						['.numd', days],
+						['.numh', hours],
+						['.numm', minutes],
+						['.nums', seconds],
+						['.numc', centiseconds]
+					];
+					for (i = 0; i < count_list.length; i++) {
+						if (count_list[i][1] < 10) {
+							count_list[i][1] = '0' + count_list[i][1];
+						}
+						if ($(count_list[i][0]).text() != count_list[i][1]) {
+							$(count_list[i][0]).text(count_list[i][1]).animate({
+								opacity: '.5'
+							}, 100).animate({
+								opacity: '1'
+							}, 500);
+						} else {
+							$(count_list[i][0]).text(count_list[i][1]);
+						}
+					}
+					document.title = 'D-' + (days + 1) ;
+				} else {
+					$('#output').text('00:00:00:00:00');
+					clearTimeout('countdown()');
+				}
+				setTimeout('countdown()', 10);
+			}
+			countdown();
+			//infomation windows
+			var info = 0;
+			$('#infoopen').mousedown(function () {
+				$(this).removeClass('offclick');
+				$(this).addClass('onclick');
+			}).mouseup(function () {
+				if (info == 0) {
+					$('#info').slideDown('');
+					$('#output_msg').slideUp('');
+					$('#output').slideUp('');
+					$(this).removeClass('onclick');
+					$(this).addClass('offclick');
+					info = 1;
+				} else if (info == 1) {
+					$('#info').slideUp('');
+					$('#output_msg').slideDown('');
+					$('#output').slideDown('');
+					$(this).removeClass('onclick');
+					$(this).addClass('offclick');
+					info = 0;
+				}
+			});
+			$('.numbox').mouseenter(function () {
+				$(this).animate({
+					"color": "rgb(253, 179, 173)"
+				}, 250);
+			}).mouseleave(function () {
+				$(this).animate({
+					color: "#f32"
+				}, 500);
+			});
+		</script>
+	</body>
+
+</html>

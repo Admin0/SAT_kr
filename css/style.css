@@ -1,8 +1,11 @@
 /*@import url("http://ts.daumcdn.net/custom/blog/5/54055/skin/style.css");*/
-
 @import url("css_prettify.css");
-@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url(https: //fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+html {}
+
 body {
+  height: 100vh;
   margin: 0 auto;
   padding: 0;
   text-align: center;
@@ -10,18 +13,25 @@ body {
 }
 
 header {
+  position: fixed;
   text-align: center;
   background: #fff;
   color: #212121;
-  height: 10em;
   width: 100%;
   display: ;
+  padding: 2em 0;
 }
 
 header h1 {
-  margin-top: 1.5em;
-  margin-top: 2em;
-  display: inline-block;
+  /* margin: 1.25em 0 .25em; */
+  margin: 0;
+  /* display: inline-block; */
+}
+
+header .tag {
+  margin-top: 1em;
+  font-size: .75em;
+  color: #777;
 }
 
 footer {
@@ -29,6 +39,12 @@ footer {
   background: #333;
   color: #eee;
   width: 100%;
+}
+
+body>section {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 #imgs {}
@@ -46,6 +62,7 @@ footer {
   height: 88px;
   border: 0;
   margin-top: 3em;
+  max-width: 100%;
 }
 
 .pages:first-child {
@@ -53,18 +70,38 @@ footer {
 }
 
 .ad {
-  margin: 5em;
+  margin: 3em 0;
 }
 
 .copythis {
   margin: auto;
-  width: 346px;
+  width: 347px;
+  max-width: calc(100% - 2em);
   box-shadow: none;
-  margin-top: -1em;
+  margin: -2px 0 0 0;
   border: 1px solid silver;
   border-radius: 0;
   background: #eee;
-  padding: 1em;
-  top: 11px;
-  position: relative;
+  padding: .75em 1em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+  display: inline-block;
+  white-space: pre;
+}
+
+.copythis:before {
+  content: '📋';
+}
+
+@media screen and (max-height:1080px) {
+  header {
+    position: static;
+  }
+
+  body>section {
+    position: static;
+    top: 0;
+    transform: none;
+  }
 }

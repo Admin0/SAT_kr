@@ -6,7 +6,7 @@
 		<meta name="author" content="JinH" />
 		<meta name="keywords" content="수학능력시험" />
 		<meta name="description" content="2019년 11월 14일 0시 정각에 맞춰진 카운터입니다." />
-		<link href='https://fonts.googleapis.com/css?family=Rationale' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
 		<!-- google font -->
 		<style type="text/css">
 			html {
@@ -18,6 +18,7 @@
 			body {
 				margin:0;
 				height:100%;
+				line-height: 1;
 /* Internet Explorer 10 */
 display:-ms-flexbox;
 -ms-flex-pack:center;
@@ -39,26 +40,29 @@ box-pack:center;
 box-align:center;
 			}
 			.numbox {
-				width:0.9em;
+				/* width:0.9em; */
 				display:inline-block;
 				text-align:left;
 			}
 			.numd {
-				width:1.3em;
+				/* width:1.3em; */
 				text-align:right;
 			}
 			.numc {
-				width:1.1em;
+				/* width:1.1em; */
 				text-align:left;
 			}
 			#output_msg {
 				text-align:center;
+				margin: .25em 0;
 			}
 			#output {
-				font:4em Rationale;
+				font-size: 4em;
+				font-family: 'Share Tech Mono', monospace;
 				color:#f32;
 				text-align:center;
 				line-height:1;
+				letter-spacing: -0.1em;
 				cursor:default;
 			}
 			#infoopen, #infoclose {
@@ -68,12 +72,13 @@ box-align:center;
 				height:1.3em;
 				text-align:center;
 				position: absolute;
-				margin-left:27.5em;
+				right: .5em;
+				/* margin-left:27.5em;
 				background: #ddd;
-				padding: .5em;
+				padding: .5em; */
 			}
 			#info {
-				height:6em;
+				height: 6em;
 				background-color:rgba(255, 255, 255, 0.7);
 				display:none;
 				margin:auto;

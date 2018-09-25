@@ -93,7 +93,8 @@ body>section {
   content: '📋';
   float: left;
   border-right: 1px solid silver;
-  padding-right: 1em;
+  padding: .5em;
+  margin: -.5em;
 }
 
 @media screen and (max-height:1080px) {

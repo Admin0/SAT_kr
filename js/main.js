@@ -8,8 +8,17 @@ function forIE() { //creat html5 element for IE
   }
 }
 
+function copy_tooltip() {
+  $(".copythis").on("click", function() {
+    $(this).prev().fadeIn(400, function() {
+      $(this).delay(500).fadeOut();
+    });
+  });
+}
+
 $(function() {
   new ClipboardJS('.copythis');
+  copy_tooltip();
   // $('.ad_article_mobile').remove();
 });
 

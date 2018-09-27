@@ -1,4 +1,4 @@
-# BUCKET LIST by JinH
+# 대학수학능력시험 디데이 카운터
 - 실행 페이지: https://jinh.kr/SAT_kr/
 - 블로그: http://blog.jinh.kr/
 

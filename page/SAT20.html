@@ -16,96 +16,12 @@
 		<meta name="keywords" content="수학능력시험" />
 		<meta name="description" content="2019년 11월 14일 0시 정각에 맞춰진 카운터입니다." />
 		<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
-		<!-- google font -->
-		<style type="text/css">
-			html {
-				overflow:hidden;
-				font:12px sans-serif;
-				color:#333;
-				height:100%;
-			}
-			body {
-				margin:0;
-				height:100%;
-				line-height: 1;
-/* Internet Explorer 10 */
-display:-ms-flexbox;
--ms-flex-pack:center;
--ms-flex-align:center;
-
-/* Firefox */
-display:-moz-box;
--moz-box-pack:center;
--moz-box-align:center;
-
-/* Safari, Opera, and Chrome */
-display:-webkit-box;
--webkit-box-pack:center;
--webkit-box-align:center;
-
-/* W3C */
-display:box;
-box-pack:center;
-box-align:center;
-			}
-			.numbox {
-				/* width:0.9em; */
-				display:inline-block;
-				text-align:left;
-			}
-			.numd {
-				/* width:1.3em; */
-				text-align:right;
-			}
-			.numc {
-				/* width:1.1em; */
-				text-align:left;
-			}
-			#output_msg {
-				text-align:center;
-				margin: .25em 0;
-			}
-			#output {
-				font-size: 4em;
-				font-family: 'Share Tech Mono', monospace;
-				color:#f32;
-				text-align:center;
-				line-height:1;
-				letter-spacing: -0.1em;
-				cursor:default;
-			}
-			#infoopen, #infoclose {
-				cursor:pointer;
-				display:inline-block;
-				width:1.3em;
-				height:1.3em;
-				text-align:center;
-				position: absolute;
-				right: .5em;
-				/* margin-left:27.5em;
-				background: #ddd;
-				padding: .5em; */
-			}
-			#info {
-				height: 6em;
-				background-color:rgba(255, 255, 255, 0.7);
-				display:none;
-				margin:auto;
-				overflow:hidden;
-			}
-			.onclick {
-				background-color:#f32;
-			}
-			.offclick {
-				background-color:#fff;
-			}
-
-		</style>
+		<link href="../css/pages.css" rel="stylesheet">
 		<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="https://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 	</head>
 	<body>
-		<div style="border:1px solid silver; padding:1ex; width:30em; height:6em; margin:auto;">
+		<div id="outbox">
 			<div id="infoopen" class="offclick">
 				<svg width="8" height="8">
 					<path style="stroke:#333;" d="M 0,1.5 8,1.5 M 0,4.5 8,4.5 M 0,7.5 8,7.5"></path>

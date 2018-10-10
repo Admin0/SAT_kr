@@ -27,8 +27,9 @@ header h1 {
 }
 
 header .tag {
-  margin-top: 1em;
-  font-size: .75em;
+  display: inline-block;
+  margin: 0 .25em;
+  font-size: .875em;
   color: #777;
 }
 

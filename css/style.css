@@ -7,7 +7,7 @@ body {
   margin: 0 auto;
   padding: 0;
   text-align: center;
-  font: 12px normal 'Noto Sans KR';
+  font-family: 'Noto Sans KR';
 }
 
 header {

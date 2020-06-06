@@ -74,14 +74,14 @@ body>section {
 
 .copythis {
   margin: auto;
-  width: 341px;
+  width: 357px;
   max-width: calc(100% - 2em - 2px);
   box-shadow: none;
   margin: -2px 0 0 0;
   border: 1px solid silver;
   border-radius: 0;
   background: #eee;
-  padding: .75em 1.5em 0.75em .5em;
+  padding: .75em .5em;
   text-overflow: ellipsis;
   overflow: hidden;
   cursor: pointer;
@@ -97,6 +97,10 @@ body>section {
   padding: .75em;
   margin: -.75em -.5em;
   background: #ddd;
+}
+
+.copythis code {
+  margin-left: 20px;
 }
 
 .copy_tooltip {

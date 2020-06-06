@@ -8,29 +8,27 @@
 	<meta name="keywords" content="수학능력시험" />
 	<meta name="description" content="2020년 12월 3일 0시 정각에 맞춰진 카운터입니다." />
 	<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
-	<link href="../css/pages.css" rel="stylesheet">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" src="https://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+	<link href="../css/pages_2020.css" rel="stylesheet">
 </head>
 
 <body>
 	<div id="outbox">
-		<div id="infoopen" class="offclick">
+		<div id="info_btn">
 			<svg width="8" height="8">
-					<path style="stroke:#333;" d="M 0,1.5 8,1.5 M 0,4.5 8,4.5 M 0,7.5 8,7.5"></path>
-				</svg>
+				<path style="stroke:#333;" d="M 0,1.5 8,1.5 M 0,4.5 8,4.5 M 0,7.5 8,7.5"></path>
+			</svg>
 		</div>
 		<div id="output_msg"><b>2021 대학수학능력시험 카운터</b>
 
 		</div>
 		<div id="output">Loading...</div>
-		<div id="info"> <pre style="margin:0;">2020년 12월 3일 0시 정각에 맞춰진 카운터입니다.
+		<div id="info">
+			<pre style="margin:0;">2020년 12월 3일 0시 정각에 맞춰진 카운터입니다.
 
 제작: JinH
-블로그: <a href="http://blog.jinh.kr/guestbook" target="_blank">http://blog.jinh.kr/</a>
 배포: <a href="https://jinh.kr/SAT_kr/" target="_blank">https://jinh.kr/SAT_kr/</a>
 
-화이팅^^</pre>
+#믿는다_너니까</pre>
 
 		</div>
 	</div>
@@ -43,7 +41,7 @@
 		function M(number) {
 			return Math.floor(number / 1000);
 		}
-		$('#output').html('<div class="numbox numd"></div>:<div class="numbox numh"></div>:<div class="numbox numm"></div>:<div class="numbox nums"></div>:<div class="numbox numc"></div>');
+		document.querySelector('#output').innerHTML = '<div class="numbox numd"></div>:<div class="numbox numh"></div>:<div class="numbox numm"></div>:<div class="numbox nums"></div>:<div class="numbox numc"></div>';
 
 		function countdown() {
 			var time_now = new Date().getTime();
@@ -63,57 +61,37 @@
 					['.numc', centiseconds]
 				];
 				for (i = 0; i < count_list.length; i++) {
-					if (count_list[i][1] < 10) {
-						count_list[i][1] = '0' + count_list[i][1];
-					}
-					if ($(count_list[i][0]).text() != count_list[i][1]) {
-						$(count_list[i][0]).text(count_list[i][1]).animate({
-							opacity: '.5'
-						}, 100).animate({
-							opacity: '1'
-						}, 500);
+					let num = document.querySelector(count_list[i][0]);
+					if (count_list[i][1] < 10) count_list[i][1] = '0' + count_list[i][1];
+					if (num.textContent != count_list[i][1]) {
+						num.textContent = count_list[i][1];
+						num.classList.remove('on');
 					} else {
-						$(count_list[i][0]).text(count_list[i][1]);
+						num.classList.add('on');
 					}
 				}
 				document.title = 'D-' + (days + 1);
 			} else {
-				$('#output').text('00:00:00:00:00');
+				document.querySelector('#output').textContent = '00:00:00:00:00';
 				clearTimeout('countdown()');
 			}
 			setTimeout('countdown()', 10);
 		}
 		countdown();
 		//infomation windows
-		var info = 0;
-		$('#infoopen').mousedown(function() {
-			$(this).removeClass('offclick');
-			$(this).addClass('onclick');
-		}).mouseup(function() {
-			if (info == 0) {
-				$('#info').slideDown('');
-				$('#output_msg').slideUp('');
-				$('#output').slideUp('');
-				$(this).removeClass('onclick');
-				$(this).addClass('offclick');
-				info = 1;
-			} else if (info == 1) {
-				$('#info').slideUp('');
-				$('#output_msg').slideDown('');
-				$('#output').slideDown('');
-				$(this).removeClass('onclick');
-				$(this).addClass('offclick');
-				info = 0;
+		let info_btn = document.querySelector('#info_btn');
+		info_btn.addEventListener('mouseup', e => {
+			if (info_btn.classList.contains('on')) {
+				document.querySelector('#info').style.display = 'none';
+				document.querySelector('#output_msg').style.display = 'block';
+				document.querySelector('#output').style.display = 'block';
+				info_btn.classList.remove('on');
+			} else {
+				document.querySelector('#info').style.display = 'block';
+				document.querySelector('#output_msg').style.display = 'none';
+				document.querySelector('#output').style.display = 'none';
+				info_btn.classList.add('on');
 			}
-		});
-		$('.numbox').mouseenter(function() {
-			$(this).animate({
-				"color": "rgb(253, 179, 173)"
-			}, 250);
-		}).mouseleave(function() {
-			$(this).animate({
-				color: "#f32"
-			}, 500);
 		});
 	</script>
 </body>

@@ -79,7 +79,8 @@ body {
   position: relative;
   border: 1px solid silver;
   padding: 1ex;
-  width: 30em;
+  max-width: 30em;
+  width: calc(100% - 2ex - 2px);
   height: 6em;
   margin: auto;
 }
@@ -126,4 +127,29 @@ body {
 
 .offclick {
   background-color: #fff;
+}
+
+@media only screen and (max-width:370px) {
+  #output {
+    font-size: 3.5em;
+  }
+  #outbox {
+    height: 5em;
+  }
+}
+@media only screen and (max-width:300px) {
+  #output {
+    font-size: 3em;
+  }
+  #outbox {
+    height: 4.5em;
+  }
+}
+@media only screen and (max-width:270px) {
+  #output {
+    font-size: 2.5em;
+  }
+  #outbox {
+    height: 4em;
+  }
 }

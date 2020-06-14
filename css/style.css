@@ -55,13 +55,13 @@ body>section {
 }
 
 .pages {
-  width: 375px;
+  width: 100%;
+  max-width: 375px;
   margin: auto;
   display: block;
   height: 88px;
   border: 0;
   margin-top: 1em;
-  max-width: 100%;
 }
 
 .pages:first-child {
@@ -75,7 +75,7 @@ body>section {
 .copythis {
   margin: auto;
   width: 357px;
-  max-width: calc(100% - 2em - 2px);
+  max-width: calc(100% - 1em - 2px);
   box-shadow: none;
   margin: -2px 0 0 0;
   border: 1px solid silver;
@@ -135,5 +135,31 @@ body>section {
     position: static;
     top: 0;
     transform: none;
+  }
+}
+
+@media only screen and (max-width:370px) {
+  .pages {
+    height: 75px;
+  }
+}
+
+@media only screen and (max-width:300px) {
+  .pages {
+    height: 70px;
+  }
+
+  .copythis {
+    font-size: .75em;
+  }
+}
+
+@media only screen and (max-width:270px) {
+  .pages {
+    height: 65px;
+  }
+
+  .copythis {
+    font-size: .5em;
   }
 }

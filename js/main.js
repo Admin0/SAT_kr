@@ -8,13 +8,21 @@ function forIE() { //creat html5 element for IE
   }
 }
 
-function copy_tooltip() {
-  $(".copythis").on("click", function() {
-    $(this).prev().fadeIn(400, function() {
-      $(this).delay(500).fadeOut();
+let copythis = document.querySelectorAll(".copythis");
+for (i = 0; i < copythis.length; i++) {
+  (function(i) {
+    let copy_tooltip = document.querySelectorAll(".copy_tooltip")[i];
+    copythis[i].addEventListener('click', function() {
+      copy_tooltip.style.opacity = 1;
+      setTimeout(function(){
+        copy_tooltip.style.opacity = 0;
+      },1000);
     });
-  });
+  })(i);
 }
+
+new ClipboardJS('.copythis');
+
 
 var tag = [
   "수능", "대학수학능력시험", "디데이", "D-day", "열공", "빡공", "대학가면남친생김?", "대학가면여친생김?", "응_아니야", "넌할수있어",
@@ -41,35 +49,13 @@ function tag_manager(target, times) {
   var t;
   for (var i = 0; i < times; i++) {
     n = dice(1, tag.length, -1)
-    target.after("<span class='tag'> #" + tag[n] + "</span>");
+    let tag_msg = document.createElement("span");
+    tag_msg.classList.add("tag");
+    tag_msg.innerHTML = "#" + tag[n];
+    target.after(tag_msg);
+    // target.after("<span class='tag'> #" + tag[n] + "</span>");
     // console.log(n + "/" + tag.length);
   }
 }
 
-$(function() {
-  new ClipboardJS('.copythis');
-  copy_tooltip();
-  tag_manager($(".tag:last-child"), 7);
-  // $('.ad_article_mobile').remove();
-});
-
-// $.ajax({
-//   url: "page/SAT19.html",
-//   context: document.body
-// }).done(function(html) {
-//   $("#page_19").html(html);
-// });
-//
-// $.ajax({
-//   url: "page/SAT20.html",
-//   context: document.body
-// }).done(function(html) {
-//   $("#page_20").html(html);
-// });
-//
-// $.ajax({
-//   url: "page/SAT21.html",
-//   context: document.body
-// }).done(function(html) {
-//   $("#page_21").html(html);
-// });
+tag_manager(document.querySelector(".tag:last-child"), 7);

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/earlyaccess/notosanskr.css");
+@import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap");
 
 html {
   overflow: hidden;
@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  font: 12px normal 'Noto Sans KR';
+  font: 12px normal;
   margin: 0;
   height: 100%;
   line-height: 1;
@@ -25,9 +25,8 @@ body {
   -webkit-box-pack: center;
   -webkit-box-align: center;
   /* W3C */
-  display: box;
-  box-pack: center;
-  box-align: center;
+  display: flex;
+  align-items: center;
 }
 
 .numbox {
@@ -88,6 +87,7 @@ body {
 #output_msg {
   text-align: center;
   margin: .25em 0;
+  font-size: 1em;
 }
 
 #output {
@@ -133,22 +133,27 @@ body {
   #output {
     font-size: 3.5em;
   }
+
   #outbox {
     height: 5em;
   }
 }
+
 @media only screen and (max-width:300px) {
   #output {
     font-size: 3em;
   }
+
   #outbox {
     height: 4.5em;
   }
 }
+
 @media only screen and (max-width:270px) {
   #output {
     font-size: 2.5em;
   }
+
   #outbox {
     height: 4em;
   }

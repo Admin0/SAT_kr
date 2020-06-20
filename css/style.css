@@ -141,13 +141,13 @@ body>section {
 
 @media only screen and (max-width:370px) {
   .pages {
-    height: 75px;
+    height: calc(5em - 3px);
   }
 }
 
 @media only screen and (max-width:300px) {
   .pages {
-    height: 70px;
+    height: calc(4.5em - 3px);
   }
 
   .copythis {
@@ -157,7 +157,7 @@ body>section {
 
 @media only screen and (max-width:270px) {
   .pages {
-    height: 65px;
+    height: calc(4em - 3px);
   }
 
   .copythis {

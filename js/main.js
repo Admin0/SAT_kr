@@ -14,9 +14,9 @@ for (i = 0; i < copythis.length; i++) {
     let copy_tooltip = document.querySelectorAll(".copy_tooltip")[i];
     copythis[i].addEventListener('click', function() {
       copy_tooltip.style.opacity = 1;
-      setTimeout(function(){
+      setTimeout(function() {
         copy_tooltip.style.opacity = 0;
-      },1000);
+      }, 1000);
     });
   })(i);
 }
@@ -59,3 +59,5 @@ function tag_manager(target, times) {
 }
 
 tag_manager(document.querySelector(".tag:last-child"), 7);
+
+history.replaceState(null, null, "../morse/");

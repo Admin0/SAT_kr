@@ -60,4 +60,4 @@ function tag_manager(target, times) {
 
 tag_manager(document.querySelector(".tag:last-child"), 7);
 
-history.replaceState(null, null, "../morse/");
+history.replaceState(null, null, "../SAT_kr/");

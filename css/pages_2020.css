@@ -100,6 +100,24 @@ body {
   cursor: default;
 }
 
+#info {
+  height: 6em;
+  margin: auto;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#outbox.on #output_msg, #outbox.on #output {
+  display: none;
+}
+
+#outbox.on #info {
+  transition: 1s;
+  visibility: visible;
+  opacity: 1;
+}
+
 #info_btn {
   cursor: pointer;
   display: inline-block;
@@ -108,17 +126,10 @@ body {
   text-align: center;
   position: absolute;
   right: .5em;
+  transition: 0;
   /* margin-left: 27.5em;
     background: #ddd; */
   /* padding: .5em; */
-}
-
-#info {
-  height: 6em;
-  background-color: rgba(255, 255, 255, 0.7);
-  display: none;
-  margin: auto;
-  overflow: hidden;
 }
 
 .onclick {

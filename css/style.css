@@ -94,7 +94,7 @@ body>section {
   content: '📋';
   float: left;
   border-right: 1px solid silver;
-  padding: .75em;
+  padding: .75em .65em;
   margin: -.75em -.5em;
   background: #ddd;
 }

@@ -77,18 +77,13 @@
 		}
 		countdown();
 		//infomation windows
-		let info_btn = document.querySelector('#info_btn');
+		const info_btn = document.querySelector('#info_btn');
+		const outbox = document.querySelector('#outbox');
 		info_btn.addEventListener('mouseup', e => {
-			if (info_btn.classList.contains('on')) {
-				document.querySelector('#info').style.display = 'none';
-				document.querySelector('#output_msg').style.display = 'block';
-				document.querySelector('#output').style.display = 'block';
-				info_btn.classList.remove('on');
+			if (outbox.classList.contains('on')) {
+				outbox.classList.remove('on');
 			} else {
-				document.querySelector('#info').style.display = 'block';
-				document.querySelector('#output_msg').style.display = 'none';
-				document.querySelector('#output').style.display = 'none';
-				info_btn.classList.add('on');
+				outbox.classList.add('on');
 			}
 		});
 	</script>

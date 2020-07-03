@@ -18,7 +18,7 @@
 				<path style="stroke:#333;" d="M 0,1.5 8,1.5 M 0,4.5 8,4.5 M 0,7.5 8,7.5"></path>
 			</svg>
 		</div>
-		<h1 id="output_msg"> <b>2020 대학수학능력시험 카운터</b> </h1>
+		<h1 id="output_msg"> 2020 대학수학능력시험 (D<span id="dday"></span>) </h1>
 		<div id="output">Loading...</div>
 		<div id="info">
 			<pre style="margin:0;">2019년 11월 14일 0시 정각에 맞춰진 카운터입니다.
@@ -69,11 +69,18 @@
 					}
 				}
 				document.title = 'D-' + (days + 1);
+				document.querySelector('#dday').innerText = "-" + (days + 1);
+				setTimeout('countdown()', 10);
 			} else {
 				document.querySelector('#output').textContent = '00:00:00:00:00';
+				let days = -(M(dday / 24 / 60 / 60) + 1);
+				if (days == 0) {
+					document.querySelector('#dday').innerText = "-Day";
+				} else {
+					document.querySelector('#dday').innerText = "+" + days;
+				}
 				clearTimeout('countdown()');
 			}
-			setTimeout('countdown()', 10);
 		}
 		countdown();
 		//infomation windows

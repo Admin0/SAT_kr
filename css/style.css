@@ -69,7 +69,9 @@ body>section {
 }
 
 .ad {
-  margin: 3em 0;
+  margin: 5em auto 0;
+  background: #eee;
+  max-width: 1200px;
 }
 
 .copythis {
@@ -136,6 +138,10 @@ body>section {
     position: static;
     top: 0;
     transform: none;
+  }
+
+  .ad {
+    margin: 2.5em auto 0;
   }
 }
 

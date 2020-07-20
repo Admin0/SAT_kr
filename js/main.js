@@ -62,7 +62,7 @@ function tag_manager(target, times) {
     let tag_msg = document.createElement("span");
     tag_msg.classList.add("tag");
     tag_msg.innerHTML = "#" + tag[n];
-    target.after(tag_msg);
+    target.appendChild(tag_msg);
     // target.after("<span class='tag'> #" + tag[n] + "</span>");
     // console.log(n + "/" + tag.length);
   }

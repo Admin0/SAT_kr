@@ -86,7 +86,7 @@
 		//infomation windows
 		const info_btn = document.querySelector('#info_btn');
 		const outbox = document.querySelector('#outbox');
-		info_btn.addEventListener('mouseup', e => {
+			info_btn.addEventListener('mouseup', function(e) {
 			if (outbox.classList.contains('on')) {
 				outbox.classList.remove('on');
 			} else {

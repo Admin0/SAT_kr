@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<title>2023 대학수학능력시험 카운터</title>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<meta name="author" content="JinH" />
+	<meta name="keywords" content="수학능력시험" />
+	<meta name="description" content="2022년 11월 17일 0시 정각에 맞춰진 카운터입니다." />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="../css/pages_2020.css" rel="stylesheet">
+</head>
+
+<body>
+	<div id="outbox">
+		<div id="info_btn">
+			<svg width="8" height="8">
+				<path style="stroke:#333;" d="M 0,1.5 8,1.5 M 0,4.5 8,4.5 M 0,7.5 8,7.5"></path>
+			</svg>
+		</div>
+		<h1 id="output_msg"> 2023 대학수학능력시험 (D<span id="dday"></span>) </h1>
+		<div id="output">Loading...</div>
+		<div id="info">
+			<pre style="margin:0;">2021년 11월 18일 0시 정각에 맞춰진 카운터입니다.
+
+제작: JinH
+배포: <a href="//jinh.kr/SAT_kr/" rel="noopener" target="_blank">jinh.kr/SAT_kr/</a>
+
+#살아남2</pre>
+
+		</div>
+	</div>
+	<script type="text/javascript">
+		/*
+		 * @author	JinH
+		 * @blog	//blog.jinh.kr
+		 */
+		//timer
+		function M(number) {
+			return Math.floor(number / 1000);
+		}
+		document.querySelector('#output').innerHTML = '<div class="numbox numd"></div>:<div class="numbox numh"></div>:<div class="numbox numm"></div>:<div class="numbox nums"></div>:<div class="numbox numc"></div>';
+
+		const time_end = new Date(2022, 10, 17).getTime();
+		var time_now, dday, days, hours, minutes, seconds, centiseconds;
+
+		function countdown() {
+			time_now = new Date().getTime();
+			dday = time_end - time_now;
+			if (dday >= 0) {
+				days = M(dday / 24 / 60 / 60);
+				hours = M((dday - days * 24 * 60 * 60 * 1000) / 60 / 60);
+				minutes = M((dday - days * 24 * 60 * 60 * 1000 - hours * 60 * 60 * 1000) / 60);
+				seconds = M(dday - days * 24 * 60 * 60 * 1000 - hours * 60 * 60 * 1000 - minutes * 60 * 1000);
+				centiseconds = M((dday - days * 24 * 60 * 60 * 1000 - hours * 60 * 60 * 1000 - minutes * 60 * 1000 - seconds * 1000) * 100);
+				var count_list = [
+					['.numd', days],
+					['.numh', hours],
+					['.numm', minutes],
+					['.nums', seconds],
+					['.numc', centiseconds]
+				];
+				for (i = 0; i < count_list.length; i++) {
+					let num = document.querySelector(count_list[i][0]);
+					if (count_list[i][1] < 10) count_list[i][1] = '0' + count_list[i][1];
+					if (num.textContent != count_list[i][1]) {
+						num.textContent = count_list[i][1];
+						num.classList.remove('on');
+					} else {
+						num.classList.add('on');
+					}
+				}
+				document.title = 'D-' + (days + 1);
+				document.querySelector('#dday').innerText = "-" + (days + 1);
+				setTimeout('countdown()', 10);
+			} else {
+				document.querySelector('#output').textContent = '00:00:00:00:00';
+				let days = -(M(dday / 24 / 60 / 60) + 1);
+				if (days == 0) {
+					document.querySelector('#dday').innerText = "-Day";
+				} else {
+					document.querySelector('#dday').innerText = "+" + days;
+				}
+				clearTimeout('countdown()');
+			}
+		}
+		countdown();
+		//infomation windows
+		const info_btn = document.querySelector('#info_btn');
+		const outbox = document.querySelector('#outbox');
+		info_btn.addEventListener('mouseup', function(e) {
+			if (outbox.classList.contains('on')) {
+				outbox.classList.remove('on');
+			} else {
+				outbox.classList.add('on');
+			}
+		});
+	</script>
+</body>
+
+</html>

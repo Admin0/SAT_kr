@@ -9,8 +9,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
-  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+  <link rel="stylesheet" type="text/css" media="screen" href="css/pages.css">
+  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
   <script type="text/javascript" src="js/clipboard.min.js" defer></script>
+  <script type="text/javascript" src="js/tag.js" defer></script>
+  <script type="text/javascript" src="js/pages.js" defer></script>
   <script type="text/javascript" src="js/main.js" defer></script>
   <!-- <script type="text/javascript" src="js/script_prettify.js"></script> -->
 
@@ -40,59 +43,40 @@
 
 <body>
   <header>
-    <h1>수능 디데이 카운터</h1>
-    <span class="tag">#수능</span>
+    <h1>수<span class="translation">학</span>능<span class="translation">력시험</span> 디데이 카운터</h1>
+    <h1 class="translation">D-Day Counter for CSAT</h1>
+    <h1 id="type">#수능 #</span></h1>
+
+    <div class="copyright">
+      © 2013 - <span id="year"></span> </script> ㅓㅑㅜㅗ <br>
+      　This is ver. 4 (legacy: <a href="/v3" target="_blank">v3</a>) <br>
+      <p style="margin-top: .25em;">
+        　<a title="홈페이지" href="//jinh.kr/"><span class="material-symbols-outlined">home</span></a>
+        <a title="방명록"  href="https://jinh.tistory.com/guestbook" target="_blank"><span class="material-symbols-outlined">comment</span></a>
+      </p>
+    </div>
   </header>
 
-  <section>
+  <div id="inside_page">
+    <span class="tag">#수능</span>
+  </div>
 
-    <div>
+  <section id="book">
 
-      <iframe class="pages" src="page/SAT24.html" title="SAT24"></iframe>
-      <div class="copy_tooltip"> copied! </div>
-      <div id="copy_24" class="copythis" data-clipboard-target="#copy_24">
-        <code>&lt;iframe src="jinh.kr/SAT_kr/page/SAT24.html" style="width:365px; height:88px; border:0;"&gt;&lt;/iframe&gt;</code>
-      </div>
-
-      <iframe class="pages" src="page/SAT25.html" title="SAT25"></iframe>
-      <div class="copy_tooltip"> copied! </div>
-      <div id="copy_25" class="copythis" data-clipboard-target="#copy_25">
-        <code>&lt;iframe src="jinh.kr/SAT_kr/page/SAT25.html" style="width:365px; height:88px; border:0;"&gt;&lt;/iframe&gt;</code>
-      </div>
-
-      <iframe class="pages" src="page/SAT26.html" title="SAT23"></iframe>
-      <div class="copy_tooltip"> copied! </div>
-      <div id="copy_23" class="copythis" data-clipboard-target="#copy_23">
-        <code>&lt;iframe src="jinh.kr/SAT_kr/page/SAT26.html" style="width:365px; height:88px; border:0;"&gt;&lt;/iframe&gt;</code>
-      </div>
-
-    </div>
-
-    <script type="text/javascript">
-    </script>
-
-    <!-- <div id="page_19" class="pages">
-      SAT19.html
-    </div>
-    <div id="page_20" class="pages">
-      SAT20.html
-    </div>
-    <div id="page_21" class="pages">
-      SAT21.html
-    </div> -->
-
-    <div class="ad">
-      <!-- #SAT_kr 반응형 -->
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8175591114279139" data-ad-slot="4776153728" data-ad-format="auto" data-full-width-responsive="true"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-
+    <div id="page_1" class="pages"> #1 </div>
+    <div id="page_2" class="pages"> #2 </div>
+    <div id="page_3" class="pages"> #3 </div>
   </section>
 
-  <footer>
-  </footer>
+  <div class="ad">
+    <!-- #SAT_kr 반응형 -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8175591114279139" data-ad-slot="4776153728" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <footer></footer>
 
 </body>
 

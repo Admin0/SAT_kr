@@ -1,77 +1,11 @@
-function forIE() { //creat html5 element for IE
-  if (! /*@cc_on!@*/ 0) return;
-  var e = "abbr,article,aside,audio,bb,canvas,datagrid,datalist,details,dialog,eventsource,figure,footer,hgroup,header,mark,menu,meter,nav,output,progress,section,time,video".split(','),
-    i = 0,
-    length = e.length;
-  while (i < length) {
-    document.createElement(e[i++]);
-  }
+const time = {};
+time.start = localStorage.timer || Date.now();
+
+time.log = (msg) => {
+  time[msg] = Date.now() - time.start
 }
 
-let copythis = document.querySelectorAll(".copythis");
-for (i = 0; i < copythis.length; i++) {
-  (function(i) {
-    let copy_tooltip = document.querySelectorAll(".copy_tooltip")[i];
-    copythis[i].addEventListener('click', function() {
-      copy_tooltip.style.opacity = 1;
-      setTimeout(function() {
-        copy_tooltip.style.opacity = 0;
-      }, 1000);
-    });
-  })(i);
-}
-
-new ClipboardJS('.copythis');
-
-
-var tag = [
-  "수능", "대학수학능력시험", "디데이", "D-day", "공부", "열공", "빡공",
-  "대학가면남친생김?", "대학가면여친생김?", "응_아니야", "넌할수있어", "고3",
-
-  "정시파이터", "상남자특_정시지원", "100일의_전사_가즈아", "노베이스_50일의_전사_가즈앗",
-  "오버워치한판만", "공부해이것들아", "군대나갈까", "아조씨는08학번이야", "2호선을타자",
-  "한숨자고해볼까", "문송합니다", "이과_죽었으면", "문돌이는답이없다", "아는것이힘이다",
-  "변화외에_불변하는것은_없다", "인내해라", "이루어라", "네가선택한정시지원이다_악으로깡으로버텨라", "실수가되자",
-
-  "대학문은좁지만_우리는날씬하다", "대학가서미팅할래_공장가서미싱할래?", "삼십분더공부하면_남편직업이바뀐다",
-  "10분더공부하면_마누라가바뀐다", "배워서_남_주자", "이거볼시간있으면_영단어를외워", "네_성적에_잠이_오냐?",
-  "공부가제일쉬웠어요", "국영수위주로_예습복습철저히", "내가꿈을이루면_난다시누군가의꿈이된다", "R=VD",
-  "카르페디엠", "하쿠나마타타", "응원할게", "네가최고다", "믿는다_너니까", "힘들땐_엄마얼굴생각해",
-  "조금쉬어도괜찮아", "꺼지지않는_불꽃처럼", "정신은날카롭게_마음은여유롭게", "고마워얘들아",
-  "공부의고통잠깐_못배운고통평생", "오늘걷지않으면_내일뛰어야한다", "학벌이돈이다_공부가투자다",
-  "고통이란_되어간다는증거", "불가능이란_해보지않은자의변명", "인내는쓰지만_그열매는달다",
-  "초심으로", "이루기위해서_미루지말자", "오늘을_붙들어라",
-
-  "그얼굴이면_공부라도잘해야지", "엄마가_보고있다", "성적보다_꿈을이루자", "아침을_먹자",
-  "생존", "방_치우기가_제일_재밌어지는_시간", "공부의_신", "겁쟁이는_변명도_많다", "인싸가되자",
-  "해시태그추천받음",
-
-  "만약우리가_통속의뇌라면?","만약우리가_통속의뇌가_아니라면?","전기자극을주는_어느미친과학자가_없다면?",
-
-  "물수능", "불수능", "끓는물수능", "진진자라", "암욜맨암욜맨그대여", "링딩동링딩동리디기딩디기딩딩딩",
-  "꿈을꾸느냐_이루느냐",
-
-  "인서울", "서연고", "서성한", "중경외시", "지방거점국립대", "취업깡패가되자", "전기_화학_기계",
-  "서울대", "연세대", "고려대",
-
-  "넌치킨이예쁠때가제일먹어", "광고가끔눌러주세요", "급식충에서학식충으로", "급식먹는_애들한테_학식개그는_좀_이르겠지",
-  "라면먹고갈래?ㅎ", "개복치급체력", "여친만들고싶으면_체크남방부터버려",
-
-  "화공과=육각형잘그림", "공대생=체크남방입고다님", "컴공과=세미콜론집착", "초등교육과=성악설지지함",
-  "컴공과=사실컴고칠줄잘모름", "컴공과=치킨집사장예약", "의예과=공부잘함", "회화과=초상화잘그림",
-  "경영과=교수주식투자망함", "공예과=앞치마", "철학과=자퇴추천", "회계과=총무의저주",
-  "법학과=TV에과실얘기나오면입꾹다뭄", "서울의대랑길가다부딪히면_암설의", "연세의대랑길가다부딪히면_고의아님",
-  "맥스웰방정식도_모르는_새1끼가_어디서_무선전자장치를_쓰냐", "보석상이_100만원_손해", "외않되?",
-
-  "수능끝나고_신나게놀기", "수능끝나고_여행가기", "수능끝나고_영화보기", "수능끝나고_드라마보기",
-  "수능끝나고_외식하기", "수능끝나고_게임하기", "실패란_넘어지는것이아니라_넘어진자리에머무는것",
-  "개쩌는_사이보그_솔개를_본받으십시오", "시간은_우리를_기다려주지_않아", "세상에_쉬운건없다_근데_못할것도없다",
-  "고개숙이지마_세상을똑바로바라봐", "길을아는것과_그길을걷는것_분명히다르다", "우리가습관을만들면_습관이우리를만든다",
-  "많이하지말고_잘해라", "하고싶은일은_해야하는일다음에", "남에게_상처주지마", "응애_나_애기_고3",
-
-  //수능 만점자 어록
-  "H.O.T.가_뭐죠?('99)", "남은시간엔_해설법고민('09)", "아는것만_나옴('13)", "견디고_또_견뎌('15)", "전소미보며_긴장풀었다('17)",
-];
+time.log('init');
 
 function dice(n, s, b) {
   var out = 0;
@@ -94,6 +28,65 @@ function tag_manager(target, times) {
   }
 }
 
-tag_manager(document.querySelector("header"), 7);
+tag_manager(document.querySelector("#inside_page"), 1000);
+time.log('set_tags');
 
-history.replaceState(null, null, "../SAT_kr/");
+// set year for copyright
+document.getElementById("year").innerHTML = new Date().getFullYear();
+
+// type tag message
+function type_writer(msg) {
+  let i = 0;
+  function type(msg) {
+    if (i < msg.length) {
+      document.getElementById('type').innerHTML += msg.charAt(i);
+      // console.log(msg.charAt(i));
+      i++;
+      setTimeout(type, dice(3, 50, 200), msg);
+    } else {
+      setTimeout(() => {
+        console.log(msg);
+        let i = msg.length;
+        function backspace(msg) {
+          if (i >= 0) {
+            document.getElementById('type').innerHTML = `#수능 #${msg.substring(0, i)}`;
+            i--;
+            setTimeout(backspace, dice(3, 5, 20), msg);
+          } else {
+            setTimeout(() => {
+              type_writer(`${tag[dice(1, tag.length, -1)]}`);
+            }, 500);
+          }
+        }
+        backspace(msg);
+      }, 3000, msg);
+    }
+  }
+  type(msg);
+}
+
+type_writer(`${tag[dice(1, tag.length, -1)]}`);
+
+document.onmousemove = (event) => {
+  document.querySelectorAll('.pages').forEach(element => {
+
+    const a = 15;
+    const x0 = element.getBoundingClientRect().y + element.offsetHeight / 2
+    const x = ((x0 - event.pageY) / window.innerHeight) * 2;
+    // const x = (.5 - event.pageY / window.innerHeight) * 2; // not using x0
+    const y0 = element.getBoundingClientRect().x + element.offsetWidth / 2
+    const y = ((event.pageX - y0) / window.innerWidth) * 2;
+    // const y = (-.5 + event.pageX / window.innerWidth) * 2; // not using y0
+    const z = 0;
+    element.style.transform = `rotate3d(${x}, ${y}, ${z}, ${a * (x ** 2 + y ** 2)}deg)`;
+    // console.log([event.pageY, x1]);
+
+    // Another code
+    // const rotateX = `calc((90deg - 180 * ${event.pageY / window.innerHeight}deg)/5)`;
+    // const rotateY = `calc((-90deg + 180 * ${event.pageX / window.innerWidth}deg)/5)`;
+    // const rotateZ = 0;
+    // element.style.transform = `rotateX(${rotateX}) rotateY(${rotateY}) rotateZ(${rotateZ})`;
+  });
+};
+
+// window.onload = console.table(time);

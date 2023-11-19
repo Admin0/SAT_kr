@@ -22,12 +22,14 @@
   margin: 0 0 .5em;
   font-size: 1.25em;
   color: #202124;
-  font-weight: 400;
+  font-weight: 500;
+  padding-left: .3em;
 }
 
 .pages h2 .dday {
-  font-size: .85em;
-  margin-top: .15em;
+  font-size: .75em;
+  font-weight: 200;
+  margin-top: .25em;
   float: right;
   color: #5f6368;
 }
@@ -183,8 +185,23 @@
 }
 
 @media only screen and (max-width:500px) {
+  #book {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, .25);
+    width: fit-content;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, .25);
+    border-radius: .5em;
+  }
+
   .pages {
     font-size: .75em;
+    margin: 0 auto;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .25);
+  }
+
+  .pages:hover {
+    box-shadow: none;
   }
 
   .ad {

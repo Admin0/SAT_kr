@@ -30,7 +30,7 @@ function tag_manager(target, times) {
   }
 }
 
-tag_manager(document.querySelector("#inside_page"), 1000);
+tag_manager(document.querySelector("#inside_page"), 2013);
 time.log('set_tags');
 
 // set year for copyright
@@ -47,7 +47,7 @@ function type_writer(msg) {
       setTimeout(type, dice(3, 50, 200), msg);
     } else {
       setTimeout(() => {
-        console.log(msg);
+        // console.log(msg);
         let i = msg.length;
         function backspace(msg) {
           if (i >= 0) {
@@ -70,25 +70,29 @@ function type_writer(msg) {
 type_writer(`${tag[dice(1, tag.length, -1)]}`);
 
 document.onmousemove = (event) => {
-  document.querySelectorAll('.pages').forEach(element => {
+  if (window.innerWidth > 425) {
+    document.querySelectorAll('.pages').forEach(element => {
 
-    const a = 15;
-    const x0 = element.getBoundingClientRect().y + element.offsetHeight / 2
-    const x = ((x0 - event.pageY) / window.innerHeight) * 2;
-    // const x = (.5 - event.pageY / window.innerHeight) * 2; // not using x0
-    const y0 = element.getBoundingClientRect().x + element.offsetWidth / 2
-    const y = ((event.pageX - y0) / window.innerWidth) * 2;
-    // const y = (-.5 + event.pageX / window.innerWidth) * 2; // not using y0
-    const z = 0;
-    element.style.transform = `rotate3d(${x}, ${y}, ${z}, ${a * (x ** 2 + y ** 2)}deg)`;
-    // console.log([event.pageY, x1]);
+      const a = 15;
+      const x0 = element.getBoundingClientRect().y + element.offsetHeight / 2
+      const x = ((x0 - event.pageY) / window.innerHeight) * 2;
+      // const x = (.5 - event.pageY / window.innerHeight) * 2; // not using x0
+      const y0 = element.getBoundingClientRect().x + element.offsetWidth / 2
+      const y = ((event.pageX - y0) / window.innerWidth) * 2;
+      // const y = (-.5 + event.pageX / window.innerWidth) * 2; // not using y0
+      const z = 0;
+      element.style.transform = `rotate3d(${x}, ${y}, ${z}, ${a * (x ** 2 + y ** 2)}deg)`;
+      // console.log([event.pageY, x1]);
 
-    // Another code
-    // const rotateX = `calc((90deg - 180 * ${event.pageY / window.innerHeight}deg)/5)`;
-    // const rotateY = `calc((-90deg + 180 * ${event.pageX / window.innerWidth}deg)/5)`;
-    // const rotateZ = 0;
-    // element.style.transform = `rotateX(${rotateX}) rotateY(${rotateY}) rotateZ(${rotateZ})`;
-  });
+      // Another code
+      // const rotateX = `calc((90deg - 180 * ${event.pageY / window.innerHeight}deg)/5)`;
+      // const rotateY = `calc((-90deg + 180 * ${event.pageX / window.innerWidth}deg)/5)`;
+      // const rotateZ = 0;
+      // element.style.transform = `rotateX(${rotateX}) rotateY(${rotateY}) rotateZ(${rotateZ})`;
+    });
+  } else {
+    document.querySelectorAll('.pages').forEach(element => { element.style.transform = `rotate3d(0, 0, 0, 0)`; });
+  }
 };
 
 // window.onload = console.table(time);

@@ -1,12 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0');
+@import url('SKYBORI.woff');
+
+@font-face {
+  font-family: 'jamsil_3';
+  src: url('The Jamsil 3 Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SKYBORI';
+  src: url('SKYBORI.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'omyu_pretty';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 
 body {
   text-align: center;
   font-family: 'Noto Sans KR';
   margin: 0;
-
+  background: linear-gradient(to bottom, rgba(256, 256, 256, .5) 0%, transparent 10%, transparent 100%);
+  height: calc(100vh - 5em);
 }
 
 header {
@@ -18,7 +37,7 @@ header {
 }
 
 header h1 {
-  font-family: 'Noto Serif KR';
+  font-family: 'jamsil_3';
   font-size: 5em;
   margin: 0;
   text-align: left;
@@ -30,17 +49,24 @@ header h1 {
 }
 
 header .copyright {
+  font-family: 'omyu_pretty';
   text-align: left;
   position: absolute;
-  top: 1.5em;
-  left: 62em;
+  top: -4em;
+  left: 63em;
+  font-size: .75em;
   white-space: nowrap;
   color: #555;
+  border-left: 5em solid rgba(148, 187, 233, 1);
+  padding: 1em;
+  background: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, .25);
+  transform: rotate(-5deg);
 }
 
 header #type {
   position: relative;
-  font-family: 'Noto Sans KR';
+  font-family: 'SKYBORI';
   font-weight: 400;
   font-size: 4em;
   padding-right: .1em;
@@ -64,18 +90,18 @@ header #type {
   }
 
   50% {
-    border-right: 5px solid rgba(148, 187, 233, 1);
+    border-right: .07em solid rgba(148, 187, 233, 1);
   }
 
   100% {
-    border-right: 5px solid rgba(148, 187, 233, 1);
+    border-right: .07em solid rgba(148, 187, 233, 1);
   }
 }
 
 #inside_page {
   font-size: 1em;
   font-weight: bold;
-  color: #eee;
+  color: rgba(125, 125, 125, .125);
   position: absolute;
   overflow: hidden;
   height: 100%;
@@ -172,13 +198,12 @@ footer {
 
 @media screen and (max-width:500px) {
   header {
-    margin: 2em 1em;
+    margin: 1em 1em;
     width: calc(100% - 2em);
   }
 
-  header h1 {
-    font-size: 2em;
-    text-align: center;
+  header h1:not(#type) {
+    display: none;
   }
 
   header .copyright {
@@ -187,6 +212,7 @@ footer {
 
   header #type {
     font-size: 1.5em;
+    font-weight: 700;
   }
 
   #inside_page {

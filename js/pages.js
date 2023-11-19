@@ -46,6 +46,7 @@ function countdown(id, year, month, day) {
         ];
         for (i = 0; i < count_list.length; i++) {
             let num = document.querySelector(count_list[i][0]);
+            if (count_list[0][1] < 100) count_list[0][1] = '0' + count_list[0][1]; // days 3자리
             if (count_list[i][1] < 10) count_list[i][1] = '0' + count_list[i][1];
             if (num.textContent != count_list[i][1]) {
                 num.textContent = count_list[i][1];
@@ -54,15 +55,15 @@ function countdown(id, year, month, day) {
                 num.classList.add('on');
             }
         }
-        document.querySelector(`#${id} .dday`).innerText = `(D-${days + 1})`;
+        document.querySelector(`#${id} .dday`).innerText = `${year}.${month + 1}.${day}. / D-${days + 1}`;
         setTimeout(countdown, 10, id, year, month, day);
     } else {
-        document.querySelector(`#${id} .countdown`).innerHTML = '<span class="numbox">00</span>:<span class="numbox">00</span>:<span class="numbox">00</span>:<span class="numbox">00</span>:<span class="numbox">00</span>';
+        document.querySelector(`#${id} .countdown`).innerHTML = '<span class="numbox">000</span>:<span class="numbox">00</span>:<span class="numbox">00</span>:<span class="numbox">00</span>:<span class="numbox">00</span>';
         let days = -(M(dday / 24 / 60 / 60) + 1);
         if (days == 0) {
-            document.querySelector(`#${id} .dday`).innerText = "(D-Day)";
+            document.querySelector(`#${id} .dday`).innerHTML = `${year}.${month + 1}.${day}. / D-Day`;
         } else {
-            document.querySelector(`#${id} .dday`).innerText = `(D+${days})`;
+            document.querySelector(`#${id} .dday`).innerHTML = `${year}.${month + 1}.${day}. / D+${days}`;
         }
         clearTimeout(countdown, 10, id, year, month, day);
     }

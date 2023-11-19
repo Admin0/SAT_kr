@@ -43,14 +43,15 @@ header #type {
   font-family: 'Noto Sans KR';
   font-weight: 400;
   font-size: 4em;
-  -webkit-text-fill-color: transparent;
   padding-right: .1em;
   animation: type 1.2s infinite;
   width: fit-content;
 
-  background: #121FCF;
+  color: rgba(148, 187, 233, 1);
   background: linear-gradient(to right, rgba(238, 174, 202, 1) 50%, rgba(148, 187, 233, 1) 100%);
+  background-clip: text;
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @keyframes type {
@@ -134,10 +135,6 @@ footer {
 }
 
 @media screen and (max-width:1440px) {
-  header {
-    margin: 5em auto;
-    position: relative;
-  }
 
   header .translation {
     display: none;
@@ -157,7 +154,15 @@ footer {
 
   header #type {
     font-size: 2em;
-    white-space: inherit;
+    /* white-space: inherit; */
+  }
+}
+
+
+@media screen and (max-width:768px) {
+  header {
+    margin: 5em auto;
+    position: relative;
   }
 
   #book {
@@ -168,7 +173,7 @@ footer {
 @media screen and (max-width:500px) {
   header {
     margin: 2em 1em;
-    width: 100%;
+    width: calc(100% - 2em);
   }
 
   header h1 {
@@ -182,5 +187,19 @@ footer {
 
   header #type {
     font-size: 1.5em;
+  }
+
+  #inside_page {
+    font-size: .5em;
+  }
+}
+
+@media screen and (max-width:320px) {
+  header #type {
+    font-size: 1.25em;
+  }
+
+  #inside_page {
+    font-size: .5em;
   }
 }

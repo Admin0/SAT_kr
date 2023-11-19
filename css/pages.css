@@ -36,12 +36,26 @@
   /* width: 0.9em; */
   display: inline-block;
   text-align: left;
-  transition: opacity .5s;
+  transition: background .5s;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .numbox:hover {
-  opacity: .5;
-  transition: opacity .25s;
+  transition: background .25s;
+  background: #FF8A80;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+#page_3 .numbox:hover {
+  background: #EA80FC;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .numd {
@@ -52,24 +66,6 @@
 .numc {
   /* width: 1.1em; */
   text-align: left;
-}
-
-@keyframes time_on {
-  0% {
-    opacity: 1;
-  }
-
-  25% {
-    opacity: .5;
-  }
-
-  75% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
 
 .numbox.on {
@@ -90,12 +86,43 @@
 .countdown {
   font-size: 4em;
   font-family: 'Share Tech Mono', monospace;
-  color: #f32;
+
   text-align: center;
   line-height: 1;
   letter-spacing: -0.1em;
   cursor: default;
   white-space: nowrap;
+
+  color: rgb(183, 28, 28);
+  background: rgb(183, 28, 28);
+  background: linear-gradient(90deg, rgba(183, 28, 28, 1) 0%, rgba(244, 67, 54, 1) 80%, rgba(63, 81, 181, 1) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#page_1 .countdown {
+  background: rgb(183, 28, 28);
+  background: linear-gradient(90deg, rgba(183, 28, 28, 1) 0%, rgba(211, 47, 47, 1) 80%, rgba(244, 67, 54, 1) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#page_2 .countdown {
+  background: rgb(244, 67, 54);
+  background: linear-gradient(90deg, rgba(244, 67, 54, 1) 0%, rgba(194, 24, 91, 1) 80%, rgba(156, 39, 176, 1) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#page_3 .countdown {
+  background: rgb(194, 24, 91);
+  background: linear-gradient(90deg, rgba(194, 24, 91, 1) 0%, rgba(156, 39, 176, 1) 80%, rgba(63, 81, 181, 1) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #info {
@@ -135,13 +162,38 @@
   background-color: #fff;
 }
 
-@media only screen and (max-width:500px) {
+
+@media screen and (max-width:1440px) {
   .pages {
     font-size: .75em;
     margin: 2em auto;
   }
+}
+
+@media screen and (max-width:1024px) {
+  .pages {
+    font-size: .65em;
+  }
+}
+
+@media screen and (max-width:786px) {
+  .pages {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width:500px) {
+  .pages {
+    font-size: .75em;
+  }
 
   .ad {
     margin: 2em auto 0;
+  }
+}
+
+@media only screen and (max-width:320px) {
+  .pages {
+    font-size: .65em;
   }
 }

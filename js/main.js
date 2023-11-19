@@ -1,3 +1,5 @@
+// v.4 by 짆 --> JinH --> ㅓㅑㅜㅗ --> C3VA
+
 const time = {};
 time.start = localStorage.timer || Date.now();
 

@@ -37,37 +37,56 @@ time.log('set_tags');
 document.getElementById("year").innerHTML = new Date().getFullYear();
 
 // type tag message
-function type_writer(msg) {
-  let i = 0;
-  function type(msg) {
-    if (i < msg.length) {
-      document.getElementById('type').innerHTML += msg.charAt(i);
-      // console.log(msg.charAt(i));
-      i++;
-      setTimeout(type, dice(3, 50, 200), msg);
-    } else {
-      setTimeout(() => {
-        // console.log(msg);
-        let i = msg.length;
-        function backspace(msg) {
-          if (i >= 0) {
-            document.getElementById('type').innerHTML = `#수능 #${msg.substring(0, i)}`;
-            i--;
-            setTimeout(backspace, dice(3, 5, 20), msg);
-          } else {
-            setTimeout(() => {
-              type_writer(`${tag[dice(1, tag.length, -1)]}`);
-            }, 500);
-          }
-        }
-        backspace(msg);
-      }, 3000, msg);
+const $target = document.getElementById('type');
+$target.addEventListener('th.endType', function (e) {
+  setTimeout(() => {
+    let i = $target.innerText.length;
+    function backspace(msg) {
+      if (i > 4) {
+        $target.innerText = msg.substring(0, i);
+        i--;
+        setTimeout(backspace, dice(3, 5, 20), msg);
+      } else {
+        setTimeout(() => {
+          TypeHangul.type("#type", { text: tag[dice(1, tag.length, -1)], append: true, intervalType: 65, humanize: 0.25 });
+        }, 500);
+      }
     }
-  }
-  type(msg);
-}
+    backspace($target.innerText);
+  }, 3000);
+});
+TypeHangul.type("#type", { text: tag[dice(1, tag.length, -1)], append: true, intervalType: 65, humanize: 0.25 });
+// function type_writer(msg) {
+//   let i = 0;
+//   function type(msg) {
+//     if (i < msg.length) {
+//       document.getElementById('type').innerHTML += msg.charAt(i);
+//       // console.log(msg.charAt(i));
+//       i++;
+//       setTimeout(type, dice(3, 50, 200), msg);
+//     } else {
+//       setTimeout(() => {
+//         // console.log(msg);
+//         let i = msg.length;
+//         function backspace(msg) {
+//           if (i >= 0) {
+//             document.getElementById('type').innerHTML = `#수능 #${msg.substring(0, i)}`;
+//             i--;
+//             setTimeout(backspace, dice(3, 5, 20), msg);
+//           } else {
+//             setTimeout(() => {
+//               type_writer(`${tag[dice(1, tag.length, -1)]}`);
+//             }, 500);
+//           }
+//         }
+//         backspace(msg);
+//       }, 3000, msg);
+//     }
+//   }
+//   type(msg);
+// }
 
-type_writer(`${tag[dice(1, tag.length, -1)]}`);
+// type_writer(`${tag[dice(1, tag.length, -1)]}`);
 
 document.onmousemove = (event) => {
   if (window.innerWidth > 425) {

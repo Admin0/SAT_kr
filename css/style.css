@@ -172,9 +172,7 @@ footer {
   }
 
   header .copyright {
-    text-align: right;
     left: initial;
-    right: 0.5em;
     top: -3.5em;
   }
 

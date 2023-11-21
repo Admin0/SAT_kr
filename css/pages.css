@@ -103,7 +103,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-#page_1 .countdown {
+#page_0 .countdown {
   background: rgb(183, 28, 28);
   background: linear-gradient(90deg, rgba(183, 28, 28, 1) 0%, rgba(211, 47, 47, 1) 80%, rgba(244, 67, 54, 1) 100%);
   background-clip: text;
@@ -111,7 +111,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-#page_2 .countdown {
+#page_1 .countdown {
   background: rgb(244, 67, 54);
   background: linear-gradient(90deg, rgba(244, 67, 54, 1) 0%, rgba(194, 24, 91, 1) 80%, rgba(156, 39, 176, 1) 100%);
   background-clip: text;
@@ -119,7 +119,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-#page_3 .countdown {
+#page_2 .countdown {
   background: rgb(194, 24, 91);
   background: linear-gradient(90deg, rgba(194, 24, 91, 1) 0%, rgba(156, 39, 176, 1) 80%, rgba(63, 81, 181, 1) 100%);
   background-clip: text;

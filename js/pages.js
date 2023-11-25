@@ -19,7 +19,7 @@ function M(number) {
 
 pages.forEach((element, index) => {
     document.querySelector('#book').innerHTML += `<div id="page_${index}" class="pages"></div>`
-    document.querySelector(`#page_${index}`).innerHTML = `<h2 class="msg">${element.year + 1} 대학수학능력시험 <span class="dday"></span></h2><div class="countdown"><span class="numbox numd"></span>:<span class="numbox numh"></span>:<span class="numbox numm"></span>:<span class="numbox nums"></span>:<span class="numbox numc"></span></div>`;
+    document.querySelector(`#page_${index}`).innerHTML = `<h2 class="msg">${element.year + 1} 대학수학능력시험 <span class="dday"></span></h2><div class="countdown"><span class="numbox numd">000</span>:<span class="numbox numh">00</span>:<span class="numbox numm">00</span>:<span class="numbox nums">00</span>:<span class="numbox numc">00</span></div>`;
     countdown(index, element.year, element.month, element.day);
 });
 
@@ -60,7 +60,7 @@ function countdown(index, year, month, day) {
         (pages[index - 1] != undefined && pages[index - 1].isDone == true) ? document.title = `${title} D-${days + 1}` : index == 0 ? document.title = `${title} D-${days + 1}` : null; // 앞 카운터 끝났을 때 다음 타이틀 카운터 작동
     } else {
         document.querySelector(`${id} .countdown`).innerHTML = '<span class="numbox">000</span>:<span class="numbox">00</span>:<span class="numbox">00</span>:<span class="numbox">00</span>:<span class="numbox">00</span>';
-        console.log(pages);
+        // console.log(pages);
         let days = -(M(dday / 24 / 60 / 60) + 1);
         if (days == 0) {
             document.title = `${title} D-Day`; // 수능 당일 타이틀 카운터 표시

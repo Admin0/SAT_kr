@@ -48,20 +48,33 @@ header h1 {
   max-width: calc(100vw - 1em);
 }
 
-header .copyright {
+header .post_pad {
   font-family: 'omyu_pretty';
   text-align: left;
   position: absolute;
   top: -4em;
   left: 63em;
   font-size: .75em;
+}
+
+header .post_pad .postit {
+  position: absolute;
   white-space: nowrap;
   color: #555;
-  border-left: 5em solid rgba(148, 187, 233, 1);
-  padding: 1em;
+  border-left: 60px solid rgba(148, 187, 233, 1);
+  min-width: 180px;
+  height: 35px;
+  padding: 12px;
   background: #fff;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, .25);
   transform: rotate(-5deg);
+}
+
+header .post_pad .p2 {
+  left: 240px;
+  top: 12px;
+  font-size: 1.5em;
+  border-left-color: rgba(238, 174, 202, 1);
 }
 
 header #type {
@@ -171,7 +184,7 @@ footer {
     text-align: center;
   }
 
-  header .copyright {
+  header .post_pad {
     left: initial;
     top: -3.5em;
   }
@@ -204,7 +217,7 @@ footer {
     display: none;
   }
 
-  header .copyright {
+  header .post_pad {
     display: none;
   }
 

@@ -19,7 +19,7 @@ function M(number) {
 
 pages.forEach((element, index) => {
     document.querySelector('#book').innerHTML += `<div id="page_${index}" class="pages"></div>`
-    document.querySelector(`#page_${index}`).innerHTML = `<h2 class="msg">${element.year + 1} 대학수학능력시험 <span class="dday"></span></h2><div class="countdown"><span class="numbox numd">000</span>:<span class="numbox numh">00</span>:<span class="numbox numm">00</span>:<span class="numbox nums">00</span>:<span class="numbox numc">00</span></div>`;
+    document.querySelector(`#page_${index}`).innerHTML = `<h2 class="msg">${element.year + 1} <span class='translation'>대학</span>수<span class='translation'>학</span>능<span class='translation'>력시험</span> <span class="dday"></span></h2><div class="countdown"><span class="numbox numd">000</span>:<span class="numbox numh">00</span>:<span class="numbox numm">00</span>:<span class="numbox nums">00</span>:<span class="numbox numc">00</span></div>`;
     countdown(index, element.year, element.month, element.day);
 });
 

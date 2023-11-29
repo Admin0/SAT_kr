@@ -171,34 +171,17 @@ body:not(:hover) .pages {
 
 @media screen and (max-width:1440px) {
   .pages {
-    font-size: .75em;
     margin: 2em auto;
   }
 }
 
-@media screen and (max-width:1024px) {
-  .pages {
-    font-size: .65em;
-  }
-}
-
-@media screen and (max-width:786px) {
-  .pages {
-    font-size: 1em;
-  }
-}
 
 @media only screen and (max-width:500px) {
-  #book {
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, .25);
-    width: fit-content;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, .25);
-    border-radius: .5em;
-  }
 
   .pages {
-    font-size: .75em;
+    font-size: calc((100vw - 2em) / 26.5);
     margin: 0 auto;
+    padding: 1em;
     border-radius: 0;
     box-shadow: none;
     border-bottom: 1px solid rgba(0, 0, 0, .25);
@@ -208,13 +191,13 @@ body:not(:hover) .pages {
     box-shadow: none;
   }
 
-  .ad {
-    margin: 2em auto 0;
+  .pages .translation {
+    display: none;
   }
-}
 
-@media only screen and (max-width:320px) {
-  .pages {
-    font-size: .65em;
+  #book {
+    width: fit-content;
+    border-top: 1px solid rgba(0, 0, 0, .25);
+    margin: 2em auto .5em;
   }
 }

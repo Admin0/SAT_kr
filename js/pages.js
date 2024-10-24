@@ -1,8 +1,4 @@
 const pages = [{
-    year: 2023,
-    month: 10,
-    day: 16
-}, {
     year: 2024,
     month: 10,
     day: 14
@@ -10,6 +6,10 @@ const pages = [{
     year: 2025,
     month: 10,
     day: 13
+}, {
+    year: 2026,
+    month: 11,
+    day: 19
 }];
 
 
